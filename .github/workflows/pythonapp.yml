@@ -51,7 +51,7 @@ jobs:
             docker rmi robots || true
 
             # Load the new Docker image from the tar file
-            docker load -i ~/robots/robots.tar
+            docker load -i ~/robots.tar/robots.tar
 
             # Run the new Docker container in detached mode, mapping port 80 to the host
             docker run -d --name robots -p 8090:80 robots
