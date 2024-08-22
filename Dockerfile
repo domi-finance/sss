@@ -7,6 +7,8 @@ WORKDIR /app
 # Copy only the package files first to leverage cache busting
 COPY package*.json ./
 
+RUN RUN npm install -g pnpm
+
 # Install dependencies
 RUN pnpm install
 
