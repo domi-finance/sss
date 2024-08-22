@@ -19,6 +19,7 @@ RUN pnpm run build
 # Use the official Nginx image as the second stage
 FROM nginx:alpine
 
+
 # Copy the built application into the Nginx container
 COPY --from=builder /app/dist /usr/share/nginx/html
 
