@@ -8,13 +8,13 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN pnpm install
 
 # Copy all application files after dependencies are installed
 COPY . .
 
 # Build the application for production
-RUN npm run build
+RUN pnpm run build
 
 # Use the official Nginx image as the second stage
 FROM nginx:alpine
