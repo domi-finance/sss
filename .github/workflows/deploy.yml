@@ -49,7 +49,7 @@ jobs:
           docker load -i ~/admin-interface.tar
 
           # Run the new Docker container in detached mode, mapping port 80 to the host
-          docker run -d --name admin-interface -p 8080:80 admin-interface
+          docker run -d --name admin-interface -p 7079:80 admin-interface
 
           # Clean up by removing the tar file
           rm -rf ~/admin-interface.tar
