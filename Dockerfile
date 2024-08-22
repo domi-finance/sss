@@ -1,5 +1,5 @@
 # Use a slim Node.js image as the first stage
-FROM node:18.5.0
+FROM node:18.5.0 AS builder
 
 # Set the working directory
 WORKDIR /app
