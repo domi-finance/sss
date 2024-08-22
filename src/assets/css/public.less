@@ -1,0 +1,81 @@
+@import url("./reset.less");
+@import url("./default.less");
+
+// Remove default margin for the body
+body {
+  margin: 0;
+}
+
+// Ensure full width and height for html, body, and #root
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  font-size: 16px; // Base font size
+}
+
+// Styles for react-activation components
+.ka-wrapper,
+.ka-content {
+  height: 100%; // Full height for these elements
+}
+
+// Echarts container
+.echarts {
+  width: 100%;
+  height: 100%; // Full width and height for Echarts
+}
+
+// Border styles
+.b,
+.border {
+  border-style: solid; // Default border style
+}
+
+// Border direction removal
+.b-t,
+.border-t,
+.b-b,
+.border-b,
+.b-l,
+.border-l,
+.b-r,
+.border-r {
+  border-style: none; // Remove border style
+}
+
+// Specific border styles
+.b-t,
+.border-t,
+.b-solid-t,
+.border-solid-t {
+  border-top-style: solid; // Solid top border
+}
+
+.b-b,
+.border-b,
+.b-solid-b,
+.border-solid-b {
+  border-bottom-style: solid; // Solid bottom border
+}
+
+.b-l,
+.border-l,
+.b-solid-l,
+.border-solid-l {
+  border-left-style: solid; // Solid left border
+}
+
+.b-r,
+.border-r,
+.b-solid-r,
+.border-solid-r {
+  border-right-style: solid; // Solid right border
+}
+
+// Dashed border style
+.border-dashed,
+.b-dashed {
+  border-style: dashed; // Dashed border style
+}

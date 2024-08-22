@@ -1,0 +1,59 @@
+@import url("./default.less");
+
+/**
+ * Modify theme
+ * @param color - Font color
+ * @param bgColor - Background color
+ * @param layoutContentBg - Layout content background color
+ * @param contentBgColor - Content background color
+ * @param svgColor - SVG color
+ */
+.changeTheme(@color: @primaryColor,
+  @bgColor: @primaryBg,
+  @layoutContentBg: @layoutContentBg,
+  @contentBgColor: @contentBg,
+  @svgColor: @svgColor) {
+  color: @color !important;
+  background-color: @bgColor !important;
+
+  .bg {
+    background-color: @bgColor !important;
+  }
+
+  .change svg {
+    color: @svgColor !important;
+  }
+
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: @color !important;
+  }
+
+  #layoutContent {
+    background-color: @layoutContentBg !important;
+  }
+
+  #card {
+    background-color: @contentBgColor !important;
+  }
+
+  // Rich text editor
+  .w-e-toolbar,
+  .w-e-bar-item button,
+  .w-e-text-container {
+    fill: @color !important;
+    color: @color !important;
+    background-color: @bgColor !important;
+  }
+
+  #header,
+  #layout {
+    color: @color !important;
+    background-color: @bgColor !important;
+  }
+}

@@ -1,0 +1,58 @@
+name: Deploy Admin Interface
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      GENERATE_SOURCEMAP: false
+      REACT_APP_GZIP: true
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Build Docker Image
+      run: |
+        docker build -t admin-interface .
+        docker save admin-interface -o ./admin-interface.tar
+        chmod 644 ./admin-interface.tar
+
+    - name: Upload the Docker image to the server
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        password: ${{ secrets.SERVER_PASSWORD }}
+        port: ${{ secrets.SERVER_PORT }}
+        source: "./admin-interface.tar"
+        target: "~/"
+
+    - name: Deploy to Server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        password: ${{ secrets.SERVER_PASSWORD }}
+        port: ${{ secrets.SERVER_PORT }}
+        script: |
+          # Stop the container if it exists
+          docker stop admin-interface || true
+
+          # Remove the container if it exists
+          docker rm admin-interface || true
+
+          # Remove the image if it exists
+          docker rmi admin-interface || true
+
+          # Load the new Docker image from the tar file
+          docker load -i ~/admin-interface.tar
+
+          # Run the new Docker container in detached mode, mapping port 80 to the host
+          docker run -d --name admin-interface -p 8080:80 admin-interface
+
+          # Clean up by removing the tar file
+          rm -rf ~/admin-interface.tar

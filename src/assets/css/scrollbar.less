@@ -1,0 +1,31 @@
+/* Modify scrollbar style */
+::-webkit-scrollbar {
+  width: 8px;
+  /* Width of the scrollbar */
+  height: 8px;
+  /* Height of the scrollbar */
+  background: hsl(0deg 0% 70% / 10%);
+  /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  /* Background color of the scrollbar thumb (handle) */
+  border-radius: 4px;
+  /* Rounded corners for the scrollbar thumb */
+}
+
+:hover::-webkit-scrollbar-thumb {
+  background: hsl(0deg 0% 53% / 40%);
+  /* Background color of the scrollbar thumb on hover */
+}
+
+:hover::-webkit-scrollbar-track {
+  background: hsl(0deg 0% 53% / 10%);
+  /* Background color of the scrollbar track on hover */
+}
+
+::-webkit-scrollbar-corner {
+  background: rgb(0 0 0 / 0%);
+  /* Background color of the scrollbar corner */
+}

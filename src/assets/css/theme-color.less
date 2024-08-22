@@ -1,0 +1,23 @@
+@import url("./default.less");
+@import url("./theme.less");
+
+// Default theme
+.theme-primary {
+  .changeTheme();
+  /* Apply default theme styles */
+}
+
+// Dark theme
+.theme-dark {
+  .changeTheme(@darkColor,
+    /* Dark theme color */
+    @darkBg,
+    /* Dark theme background color */
+    @darkLayoutContentBg,
+    /* Dark theme layout content background color */
+    @darkContentBg,
+    /* Dark theme content background color */
+    @darkSvgColor
+    /* Dark theme SVG color */
+  );
+}
